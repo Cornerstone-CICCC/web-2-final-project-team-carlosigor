@@ -1,0 +1,288 @@
+---
+import logo from '../assets/logo.png';
+import { Facebook, Instagram, Twitter, Linkedin } from '@lucide/astro';
+---
+
+
+<header class="header">
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-content">
+        <div class="contact-info">
+          <span class="info-item">
+            <span class="label">For emergency cases:</span> 567 123 45 67
+          </span>
+          <span class="separator">|</span>
+          <span class="info-item">
+            <span class="label">Location:</span> 121 Wallstreet Street, NY - USA
+          </span>
+          <span class="separator">|</span>
+          <span class="info-item">
+            <span class="label">Open hours:</span> 9:00-24:00 Mon-Sun
+          </span>
+          <span class="separator">|</span>
+          <span class="info-item">
+            <span class="label">Email:</span> info@ddsgnr.com
+          </span>
+        </div>
+        <div class="social-icons">
+          <a href="#" aria-label="Facebook"><Facebook size={16} color='#000000' fill={"#000000"}/></a>
+          <a href="#" aria-label="Instagram"><Instagram size={16} color='#000000' /></a>
+          <a href="#" aria-label="Twitter"><Twitter size={16} color='#000000' fill={"#000000"}/></a>
+          <a href="#" aria-label="LinkedIn"><Linkedin size={16} color='#000000' /></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="main-nav">
+    <div class="container">
+      <div class="nav-content">
+
+        <div class="logo">
+          <a href="/">
+            <img src={logo.src} class="logo-icon" alt="Ddsgnr logo" />
+            <span class="logo-text">Ddsgnr</span>
+          </a>
+        </div>
+
+        <button class="mobile-menu-toggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <!-- Navigation Links -->
+        <div class="nav-links">
+          <a href="/">Home</a>
+          <a href="/about">About</a>
+          <a href="/services">Services</a>
+          <a href="/teams">Teams</a>
+          <a href="/contact">Contact</a>
+        </div>
+
+        <a href="/quote" class="cta-button">Request A Quote</a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .header {
+    width: 100%;
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, sans-serif;
+    border-bottom: 1px solid black;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .top-bar {
+    font-size: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid black;
+  }
+
+  .top-bar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .contact-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .info-item {
+    white-space: nowrap;
+  }
+
+  .label {
+    font-weight: 400;
+    margin-right: 4px;
+  }
+
+  .separator {
+    color: #666;
+  }
+
+  .social-icons {
+    display: flex;
+    gap: 12px;
+  }
+
+  .social-icons a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+    display: flex;
+    align-items: center;
+  }
+
+  .main-nav {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .nav-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+    gap: 20px;
+  }
+
+  .logo a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #1a1a1a;
+    font-weight: 600;
+    font-size: 20px;
+  }
+
+  .logo-icon {
+    color: #4a9eff;
+    font-size: 24px;
+    line-height: 1;
+  }
+
+  .logo-text {
+    font-weight: 600;
+  }
+
+  .mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+  }
+
+  .mobile-menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: #1a1a1a;
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    flex: 1;
+    justify-content: end;
+  }
+
+  .nav-links a {
+    color: #333333;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 400;
+    transition: color 0.3s;
+    white-space: nowrap;
+  }
+
+  .cta-button {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 12px 24px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.3s;
+    white-space: nowrap;
+  }
+
+  .cta-button:hover {
+    background-color: #333333;
+  }
+
+ 
+  @media (max-width: 768px) {
+
+    .top-bar {
+      display: none;
+    }
+
+    .mobile-menu-toggle {
+      display: flex;
+    }
+
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: #ffffff;
+      flex-direction: column;
+      gap: 0;
+      padding: 0;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links.active {
+      display: flex;
+    }
+
+    .nav-links a {
+      padding: 16px 20px;
+      width: 100%;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .cta-button {
+      display: none;
+    }
+
+    .nav-content {
+      padding: 12px 0;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .container {
+      padding: 0 15px;
+    }
+
+    .logo-text {
+      font-size: 18px;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.querySelector('.mobile-menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (toggle && navLinks) {
+      toggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        toggle.classList.toggle('active');
+      });
+    }
+  });
+</script>
