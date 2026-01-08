@@ -1,10 +1,139 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+import GroupText from '../components/group_text.astro';
+import TeamCard from '../components/team_card.astro';
 import Header from '../components/Header.astro';
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+
 ---
 
+<Header/>
 <Layout>
-	<Header />
+	<section class="hero max-container">
+		<GroupText 
+		  	title="A Clean Home, A Happy Life, Let Us Handle the Dirty Work!"
+			text="We develop innovative design solutions that enable our clients to enhance their competitive advantage."
+			buttons={["Request A Quote", "Learn More"]}
+		/>
+		<img src="./images/Image.png" alt="" class="hero-img">
+	</section>
+
+	<section class="section-request container">
+		<form action="" method="POST">
+			<div>
+				<label for="name">Full name</label>
+				<input type="text" name="name" id="name">
+			</div>
+			<div>
+				<label for="tel">Phone Number</label>
+				<input type="tel" name="tel" id="tel">
+			</div>
+			<div>
+				<label for="comment">Comment</label>
+				<input type="text" name="comment" id="comment">
+			</div>
+			<button type="submit" class="btn-black">Request a Quote</button>
+		</form>
+	</section>
+
+	<section class="about-container container">
+		<GroupText 
+			subtitle="About Us"	
+		  	title="Let us takecare of all your cleaning service needs."
+			text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.Lo"
+			buttons={["Request A Quote"]}
+			noLeftMargin
+		/>
+		<img src="./images/Image.png" alt="" class="about-img">
+	</section>
+
+	<section class="team-container container">
+		<h2>Our Team</h2>
+		<h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
+
+		<div class="team-grid">
+			{[
+			{ name: "Leslie Alexander", img: "/images/person-1.png" ,text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."},
+			{ name: "Ralph Edwards", img: "/images/person-2.png" ,text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."},
+			{ name: "Annette Black", img: "/images/person-3.png" ,text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."},
+			{ name: "Savannah Nguyen", img: "/images/person-4.png" ,text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."},
+			].map(member => (
+			<TeamCard name={member.name} img={member.img} text={member.text}/>
+			))}
+		</div>
+	</section>
+
 </Layout>
+
+
+
+<style>
+	.hero{
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	.hero-img{
+		width: 50%;
+	}
+	.section-request form{
+		display: flex;
+		padding: 2.5rem;
+		align-items: end;
+		justify-content: center;
+		gap: 2rem;
+	}
+	.section-request form div{
+		display: flex;
+		flex-direction: column;
+		gap: .5rem;
+	}
+	.section-request form div input{
+		border-radius: 5px;
+		border: none;
+		outline: .5px black solid;
+		outline-offset: -1px;
+		padding: 12px;
+	}
+	.about-container{
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin: 120px auto;
+	}
+	.about-img{
+		border-radius: 5px;
+		transform: scaleX(-1);
+		width: 40%;
+	}
+	.team-container h2{
+		font-family: Roboto;
+		font-weight: 700;
+		font-style: Bold;
+		font-size: 48px;
+		leading-trim: NONE;
+		line-height: 120%;
+		letter-spacing: 0%;
+		text-align: center;
+		margin-bottom: 16px;
+	}
+	.team-container h3{
+		font-family: Roboto;
+		font-weight: 400;
+		font-style: Regular;
+		font-size: 18px;
+		leading-trim: NONE;
+		line-height: 150%;
+		letter-spacing: 0%;
+		text-align: center;
+	}
+	.team-container h2, .team-container h3{
+		text-align: center;
+	}
+	.team-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 2.5rem;
+		margin-top: 80px;
+	}
+</style>
