@@ -3,6 +3,9 @@ import Layout from '../layouts/Layout.astro';
 
 import GroupText from '../components/group_text.astro';
 import TeamCard from '../components/team_card.astro';
+import HelpCard from '../components/help_card.astro';
+import ContactCard from '../components/contact_card.astro';
+
 import Header from '../components/Header.astro';
 
 ---
@@ -63,19 +66,44 @@ import Header from '../components/Header.astro';
 		</div>
 	</section>
 
+	<ContactCard/>
+
+	<section class="container">
+		<HelpCard/>
+	</section>
+
+	<section class="subscribe-container container">
+		<h2>Subscribe to our newsletter</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+		<form action="" method="POST">
+			<input type="text" name="email" id="email">
+			<button type="submit" class="btn-black">Sign up</button>
+		</form>
+		<span>By clicking Sign Up you're confirming that you agree with our Terms and Conditions.</span>
+	</section>
 </Layout>
 
 
 
 <style>
-	.hero{
-		display: flex;
+
+	/* FORM */
+
+	.hero {
+		display: grid; 
+		grid-template-columns: 1fr 80px 1fr; 
 		align-items: center;
-		justify-content: space-between;
 	}
-	.hero-img{
-		width: 50%;
+
+	.hero-img {
+		grid-column: 3;
+		width: 100%;
+		height: auto;
+		display: block;
 	}
+
+	/* REQUEST FORM */
+
 	.section-request form{
 		display: flex;
 		padding: 2.5rem;
@@ -95,17 +123,31 @@ import Header from '../components/Header.astro';
 		outline-offset: -1px;
 		padding: 12px;
 	}
+
+	/* ABOUT US */
+
 	.about-container{
-		display: flex;
+		display: grid;
+		grid-template-columns: 1fr 80px 1fr;
 		align-items: center;
-		justify-content: space-between;
 		margin: 120px auto;
 	}
+	.about-container>*{
+		display: grid;
+		grid-template-columns: 1fr 80px 1fr;
+		align-items: center;
+	}
+	
 	.about-img{
+		grid-column: 3;
 		border-radius: 5px;
 		transform: scaleX(-1);
-		width: 40%;
+		width: 100%;
+		height: auto;
+		display: block;
 	}
+
+	/* OUR TEAM */
 	.team-container h2{
 		font-family: Roboto;
 		font-weight: 700;
@@ -135,5 +177,45 @@ import Header from '../components/Header.astro';
 		grid-template-columns: repeat(2, 1fr);
 		gap: 2.5rem;
 		margin-top: 80px;
+	}
+
+	/* SUBSCRIBE */
+
+	.subscribe-container{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 24px;
+		text-align: center;
+		padding: 112px 0px;
+	}
+	.subscribe-container p{
+		max-width: 650px;
+	}
+	.subscribe-container form{
+		display: flex;
+		gap: 16px;
+	}
+	.subscribe-container form input{
+		border: none;
+		outline: .5px black solid;
+		outline-offset: -1px;
+		border-radius: 5px;
+		height: 40px;
+		padding: 5px;
+		width: 250px;
+	}
+
+	/* RESPONSIVE */
+
+	@media (max-width: 768px) {
+		.hero{
+			flex-direction: column;
+		}
+
+		.hero-img {
+			width: 100%;
+			height: auto;
+  		}
 	}
 </style>
