@@ -45,7 +45,7 @@ import '../styles/global.css';
 	</section>
 
     <style>
-        /* CONTACT US */
+    /* CONTACT US */
 
 	.contact-container{
 		background-color: #f7f7f7;
@@ -104,4 +104,20 @@ import '../styles/global.css';
 	.div7{
 		width: fit-content;
 	}
+    @media (max-width: 768px) {
+        .contact-container > div{
+            padding: 48px 20px;
+            display: grid; 
+		    grid-template-columns: 1fr;
+        }
+        .contact-container > div img{
+            display: none;
+        }
+        .contact-content form{
+            grid-template-columns: 1fr;
+	    }
+        .contact-content form > div {
+            grid-area: auto;
+        }
+    }
     </style>

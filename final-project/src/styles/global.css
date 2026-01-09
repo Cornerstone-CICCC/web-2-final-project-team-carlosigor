@@ -141,6 +141,10 @@ body {
   margin: 0 auto;
 }
 
+section.container {
+  padding: 0 20px;
+}
+
 /* Remove list styles */
 ol,
 ul {
@@ -202,7 +206,6 @@ h2 {
   font-weight: 700;
   font-style: Bold;
   font-size: 3.5rem;
-  leading-trim: NONE;
   line-height: 120%;
   letter-spacing: 0%;
   text-wrap: wrap;
@@ -212,8 +215,7 @@ h3 {
   font-family: Roboto;
   font-weight: 600;
   font-style: SemiBold;
-  font-size: 16px;
-  leading-trim: NONE;
+  font-size: 1rem;
   line-height: 150%;
   letter-spacing: 0%;
 }
@@ -222,8 +224,7 @@ p {
   font-family: Roboto;
   font-weight: 400;
   font-style: Regular;
-  font-size: 16px;
-  leading-trim: NONE;
+  font-size: 1rem;
   line-height: 150%;
   letter-spacing: 0%;
 }
@@ -242,4 +243,10 @@ button {
   padding: 12px 24px;
   border-radius: 5px;
   display: inline-block;
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 12px;
+  }
 }
