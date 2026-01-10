@@ -6,6 +6,17 @@ import TeamCard from '../components/team_card.astro';
 import HelpCard from '../components/help_card.astro';
 import ContactCard from '../components/contact_card.astro';
 
+// OUR SERVICES
+import SectionTitle from '../components/SectionTitle.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import oneBedroomImg from '../assets/one-bedroom.jpg';
+import windowCleaningImg from '../assets/window-cleaning.jpg';
+import residentialCleaningImg from '../assets/residential-cleaning.jpg';
+import commercialCleaningImg from '../assets/commercial-cleaning.jpg';
+import twoBedroomImg from '../assets/two-bedroom.jpg';
+import constructionCleaningImg from '../assets/construction-cleaning.jpg';
+
+
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
@@ -40,6 +51,52 @@ import Footer from '../components/Footer.astro';
 			<button type="submit" class="btn-black">Request a Quote</button>
 		</form>
 	</section>
+
+	<section class="services-page">
+    	<div class="services-section">
+      		<div class="container">
+				<SectionTitle
+				title="Our Services"
+				subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+				/>
+
+				<div class="services-grid" id="servicesGrid">
+					<ServiceCard
+						image={oneBedroomImg.src}
+						title="One Bedroom Apartment"
+						description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros."
+					/>
+					<ServiceCard
+						image={windowCleaningImg.src}
+						title="Window Cleaning"
+						description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros."
+					/>
+					<ServiceCard
+						image={residentialCleaningImg.src}
+						title="Residential Cleaning"
+						description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros."
+					/>
+					<ServiceCard
+						image={constructionCleaningImg.src}
+						title="Construction Cleaning"
+						description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros."
+					/>
+					<ServiceCard
+						image={commercialCleaningImg.src}
+						title="Commercial Cleaning"
+						description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros."
+					/>
+
+					<ServiceCard
+						image={twoBedroomImg.src}
+						title="Two Bedroom Apartment"
+						description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros."
+					/>
+				</div>
+        		<button class="view-all-button" id="viewAllButton">View all</button>
+      		</div>
+    	</div>
+  </section>
 
 	<section class="about-container container">
 		<GroupText 
@@ -83,6 +140,8 @@ import Footer from '../components/Footer.astro';
 		</form>
 		<span>By clicking Sign Up you're confirming that you agree with our Terms and Conditions.</span>
 	</section>
+
+	<Footer/>
 </Layout>
 
 
@@ -103,11 +162,14 @@ import Footer from '../components/Footer.astro';
 		height: auto;
 		display: block;
 	}
-
+	@media (max-width: 768px) {
+		
+	}
 	/* REQUEST FORM */
 
 	.section-request form{
 		display: flex;
+		flex-wrap: wrap;
 		padding: 2.5rem;
 		align-items: end;
 		justify-content: center;
@@ -124,6 +186,36 @@ import Footer from '../components/Footer.astro';
 		outline: .5px black solid;
 		outline-offset: -1px;
 		padding: 12px;
+	}
+
+	/* OUR SERVICES */
+
+	.services-page {
+    background-color: #F7F7F7;
+	}
+
+	.services-section {
+		padding: 80px 0;
+	}
+
+	.services-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 32px;
+	}
+
+	.view-all-button {
+		display: none;
+		margin: 40px auto 0;
+		padding: 14px 32px;
+		background-color: transparent;
+		color: #1a1a1a;
+		border: 1px solid #1a1a1a;
+		border-radius: 4px;
+		font-size: 16px;
+		cursor: pointer;
+		width: 100%;
+		max-width: 400px;
 	}
 
 	/* ABOUT US */
@@ -189,7 +281,7 @@ import Footer from '../components/Footer.astro';
 		align-items: center;
 		gap: 24px;
 		text-align: center;
-		padding: 112px 0px;
+		padding: 112px 20px;
 	}
 	.subscribe-container p{
 		max-width: 650px;
@@ -210,14 +302,110 @@ import Footer from '../components/Footer.astro';
 
 	/* RESPONSIVE */
 
+	@media (min-width: 1400px) {
+		.contact-content {
+		max-width: 1000px;
+		}
+  	}
+	@media (max-width: 968px) {
+		.services-grid {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 24px;
+		}
+	}
+
 	@media (max-width: 768px) {
-		.hero{
-			flex-direction: column;
+		.hero,.about-container {
+			grid-template-columns: 1fr;
+			grid-template-rows: auto;
+			gap: 2rem;
+			padding: 0 20px;
+		}
+		
+		.hero > * ,.about-container > *{
+			grid-column: auto;
+			crop
 		}
 
-		.hero-img {
+		.section-request form{
+			display: flex;
+			flex-direction: column;
+			flex-wrap: wrap;
+			padding: 2.5rem;
+			align-items: start;
+			justify-content: center;
+		}
+
+		.section-request form div, .section-request form button{
 			width: 100%;
-			height: auto;
-  		}
+		}
+
+		.services-section{
+			padding: 60px 20px;
+		}
+
+		.team-grid {
+			display: grid;
+			grid-template-columns: repeat(1, 1fr);
+			gap: 2.5rem;
+			margin-top: 80px;
+		}
+		
 	}
+
+	 @media (max-width: 480px) {
+    .services-section{
+      padding: 40px 20px;
+    }
+
+    .services-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .services-grid.collapsed :global(.service-card:nth-child(n+4)) {
+      display: none;
+    }
+
+    .view-all-button {
+      display: block;
+    }
+
+    .view-all-button.hidden {
+      display: none;
+    }
+	.subscribe-container{
+		display: none;
+	}
+  }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const servicesGrid = document.getElementById('servicesGrid');
+    const viewAllButton = document.getElementById('viewAllButton');
+
+    if (servicesGrid && viewAllButton) {
+      // Initially collapse the grid on mobile
+      if (window.innerWidth <= 480) {
+        servicesGrid.classList.add('collapsed');
+      }
+
+      // Handle button click
+      viewAllButton.addEventListener('click', () => {
+        servicesGrid.classList.remove('collapsed');
+        viewAllButton.classList.add('hidden');
+      });
+
+      // Handle window resize
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 480) {
+          servicesGrid.classList.remove('collapsed');
+          viewAllButton.classList.add('hidden');
+        } else if (!viewAllButton.classList.contains('hidden')) {
+          servicesGrid.classList.add('collapsed');
+        }
+      });
+    }
+  });
+</script>

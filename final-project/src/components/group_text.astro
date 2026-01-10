@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+
 const { subtitle ,title, text, buttons = [], noLeftMargin = false } = Astro.props;
 ---
 
@@ -30,7 +31,7 @@ const { subtitle ,title, text, buttons = [], noLeftMargin = false } = Astro.prop
     font-family: Roboto;
     font-weight: 600;
     font-style: SemiBold;
-    font-size: 16px;
+    font-size: 1rem;
     leading-trim: NONE;
     line-height: 150%;
     letter-spacing: 0%;
@@ -51,7 +52,7 @@ const { subtitle ,title, text, buttons = [], noLeftMargin = false } = Astro.prop
     font-family: Roboto;
     font-weight: 400;
     font-style: Regular;
-    font-size: 18px;
+    font-size: 1.125rem;
     leading-trim: NONE;
     line-height: 150%;
     letter-spacing: 0%;
@@ -69,4 +70,11 @@ const { subtitle ,title, text, buttons = [], noLeftMargin = false } = Astro.prop
     border: 1px black solid;
     color: black;
   }
+
+  	@media (max-width: 768px) {
+		.card {
+			margin-left: 0px;
+		}
+	}
+  
 </style>
