@@ -134,9 +134,10 @@ import Footer from '../components/Footer.astro';
 	<section class="subscribe-container container">
 		<h2>Subscribe to our newsletter</h2>
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
-		<form action="" method="POST">
-			<input type="text" name="email" id="email">
-			<button type="submit" class="btn-black">Sign up</button>
+		<form class="form-news">
+			<input type="email" name="email" id="email" placeholder="Enter your email">
+			<button type="submit" class="btn-black" id="btn-news">Sign up</button>
+			<div class="news-status"></div>
 		</form>
 		<span>By clicking Sign Up you're confirming that you agree with our Terms and Conditions.</span>
 	</section>
@@ -409,3 +410,6 @@ import Footer from '../components/Footer.astro';
     }
   });
 </script>
+
+<script src="../scripts/emailjs-handler.js"></script>
+<script src="../scripts/email-news.js"></script>
