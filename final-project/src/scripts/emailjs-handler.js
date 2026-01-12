@@ -23,14 +23,14 @@ document.addEventListener('DOMContentLoaded', () => {
       formStatus.textContent = '';
 
       try {
-       
+
         await emailjs.sendForm(
           SERVICE_ID,
           TEMPLATE_ID,
           contactForm
         );
 
-       
+
         formStatus.className = 'form-status success';
         formStatus.textContent = 'Thank you! Your request has been submitted successfully.';
 
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 5000);
 
       } catch (error) {
-      
+
         formStatus.className = 'form-status error';
         formStatus.textContent = 'Something went wrong. Please try again later.';
         console.error('EmailJS Error:', error);
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
           formStatus.textContent = '';
         }, 5000);
       } finally {
-        
+
         submitButton.disabled = false;
         submitButton.textContent = 'Submit';
       }
