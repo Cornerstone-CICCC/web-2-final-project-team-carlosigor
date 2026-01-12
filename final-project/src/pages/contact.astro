@@ -1,0 +1,52 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ContactCard from '../components/contact_card.astro';
+import HelpCard from '../components/help_card.astro';
+---
+
+<Layout>
+  <Header />
+    <ContactCard/>
+    <section class="container">
+		<HelpCard/>
+	</section>
+
+  <Footer />
+</Layout>
+
+
+
+<script>
+  // Services grid "View all" functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const servicesGrid = document.getElementById('servicesGrid');
+    const viewAllButton = document.getElementById('viewAllButton');
+
+    if (servicesGrid && viewAllButton) {
+      // Initially collapse the grid on mobile
+      if (window.innerWidth <= 480) {
+        servicesGrid.classList.add('collapsed');
+      }
+
+      // Handle button click
+      viewAllButton.addEventListener('click', () => {
+        servicesGrid.classList.remove('collapsed');
+        viewAllButton.classList.add('hidden');
+      });
+
+      // Handle window resize
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 480) {
+          servicesGrid.classList.remove('collapsed');
+          viewAllButton.classList.add('hidden');
+        } else if (!viewAllButton.classList.contains('hidden')) {
+          servicesGrid.classList.add('collapsed');
+        }
+      });
+    }
+  });
+</script>
+
+<script src="../scripts/emailjs-handler.js"></script>
