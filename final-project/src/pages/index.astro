@@ -35,20 +35,21 @@ import Footer from '../components/Footer.astro';
 	</section>
 
 	<section class="section-request container">
-		<form action="" method="POST">
+		<form id="contactForm">
 			<div>
-				<label for="name">Full name</label>
-				<input type="text" name="name" id="name">
+				<label for="fullname">Full name</label>
+                <input type="text" id="fullname" name="fullname" required />
 			</div>
 			<div>
-				<label for="tel">Phone Number</label>
-				<input type="tel" name="tel" id="tel">
+				<label for="phone">Phone number</label>
+                <input type="tel" id="phone" name="phone" required />
 			</div>
 			<div>
-				<label for="comment">Comment</label>
-				<input type="text" name="comment" id="comment">
+				<label for="message">Comment</label>
+				<input type="text" name="message" id="message">
 			</div>
-			<button type="submit" class="btn-black">Request a Quote</button>
+			<div class="form-status" id="formStatus"></div>
+			<button type="submit" class="btn-black" id="submitButton">Request a Quote</button>
 		</form>
 	</section>
 
