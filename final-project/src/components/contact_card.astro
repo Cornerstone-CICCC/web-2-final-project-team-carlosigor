@@ -8,43 +8,53 @@ import '../styles/global.css';
 				<h3>Contact us</h3>
 				<h2>Request a quote</h2>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-				<form action="">
+				<form id="contactForm">
 					<div class="div1">
-						<label for="">Full name</label>
-						<input type="text" name="" id="">
+						<label for="fullname">Full name</label>
+                        <input type="text" id="fullname" name="fullname" required />
 					</div>
 					<div class="div2">
-						<label for="">Phone number</label>
-						<input type="tel" name="" id="">
+						<label for="phone">Phone number</label>
+                        <input type="tel" id="phone" name="phone" required />
 					</div>
 					<div class="div3">
-						<label for="">Select service</label>
-						<select name="" id="">
-							<option value=""></option>
-							<option value=""></option>
-							<option value=""></option>
-						</select>
+						<label for="service">Select service</label>
+                        <select id="service" name="service" required>
+                        <option value=""></option>
+                        <option value="window">Window Cleaning</option>
+                        <option value="residential">Residential Cleaning</option>
+                        <option value="commercial">Commercial Cleaning</option>
+                        <option value="apartment">Apartment Cleaning</option>
+                        <option value="construction">Construction Cleaning</option>
+                        </select>
 					</div>
 					<div class="div4">
-						<label for="">Select time</label>
-						<input type="time" name="" id="">
+						<label for="time">Select time</label>
+                        <select id="time" name="time" required>
+                        <option value=""></option>
+                        <option value="morning">Morning (8AM - 12PM)</option>
+                        <option value="afternoon">Afternoon (12PM - 5PM)</option>
+                        <option value="evening">Evening (5PM - 8PM)</option>
+                        </select>
 					</div>
 					<div class="div5">
-						<label for="">Message</label>
-						<textarea name="" id="" placeholder="Type your message..."></textarea>
+						<label for="message">Message</label>
+                        <textarea id="message" name="message" rows="6" placeholder="Type your message..."></textarea>
 					</div>
 					<div class="div6">
-						<input type="checkbox" name="" id="">
-						<label for="">I accept the <a href="">Terms</a></label>
+						<input type="checkbox" id="terms" name="terms" required />
+						<label for="terms">I accept the <a href="/terms">Terms</a></label>
 					</div>
-					<button type="submit" class="div7 btn-black">Submit</button>
+
+					<button type="submit" class="div7 btn-black" id="submitButton">Submit</button>
+                    <div class="form-status" id="formStatus"></div>
 				</form>
 			</div>
 			<img src="./images/person-5.jpg" alt="">
 		</div>
-	</section>
+</section>
 
-    <style>
+<style>
     /* CONTACT US */
 
 	.contact-container{
@@ -120,4 +130,5 @@ import '../styles/global.css';
             grid-area: auto;
         }
     }
-    </style>
+</style>
+
