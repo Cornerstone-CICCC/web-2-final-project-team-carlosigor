@@ -1,0 +1,80 @@
+---
+import '../styles/global.css';
+
+const { subtitle ,title, text, buttons = [], noLeftMargin = false } = Astro.props;
+---
+
+<div class={`card ${noLeftMargin ? 'no-left' : ''}`}>
+  <h3>{subtitle}</h3>
+  <h2>{title}</h2>
+  <p>{text}</p>
+
+  <div class="buttons">
+  {(buttons as any[]).map(label => (
+    <button>{label}</button>
+  ))}
+  </div>
+</div>
+
+<style>
+  .card{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-right: 60px;
+    margin-left: 100px;
+  }
+  .card.no-left {
+  margin-left: 0;
+  }
+  .card h3{
+    font-family: Roboto;
+    font-weight: 600;
+    font-style: SemiBold;
+    font-size: 1rem;
+    leading-trim: NONE;
+    line-height: 150%;
+    letter-spacing: 0%;
+  }
+  .card h2{
+    font-family: Roboto;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 3.5rem;
+    leading-trim: NONE;
+    line-height: 120%;
+    letter-spacing: 0%;
+    text-wrap: wrap;
+    max-width: 580px;
+  }
+
+  .card p{
+    font-family: Roboto;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 1.125rem;
+    leading-trim: NONE;
+    line-height: 150%;
+    letter-spacing: 0%;
+  }
+  .buttons{
+    display: flex;
+    gap: 16px;
+  }
+
+  .buttons button:nth-child(1){
+    background-color: black;
+    color: white;
+  }
+  .buttons button:nth-child(2){
+    border: 1px black solid;
+    color: black;
+  }
+
+  	@media (max-width: 768px) {
+		.card {
+			margin-left: 0px;
+		}
+	}
+  
+</style>

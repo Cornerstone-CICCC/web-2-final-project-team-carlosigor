@@ -1,11 +1,416 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 
+import GroupText from '../components/group_text.astro';
+import TeamCard from '../components/team_card.astro';
+import HelpCard from '../components/help_card.astro';
+import ContactCard from '../components/contact_card.astro';
+
+// OUR SERVICES
+import SectionTitle from '../components/SectionTitle.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import oneBedroomImg from '../assets/one-bedroom.jpg';
+import windowCleaningImg from '../assets/window-cleaning.jpg';
+import residentialCleaningImg from '../assets/residential-cleaning.jpg';
+import commercialCleaningImg from '../assets/commercial-cleaning.jpg';
+import twoBedroomImg from '../assets/two-bedroom.jpg';
+import constructionCleaningImg from '../assets/construction-cleaning.jpg';
+
+
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
+<Header/>
 <Layout>
-	<Welcome />
+	<section class="hero max-container">
+		<GroupText 
+		  	title="A Clean Home, A Happy Life, Let Us Handle the Dirty Work!"
+			text="We develop innovative design solutions that enable our clients to enhance their competitive advantage."
+			buttons={["Request A Quote", "Learn More"]}
+		/>
+		<img src="./images/Image.png" alt="" class="hero-img">
+	</section>
+
+	<section class="section-request container">
+		<form id="contactForm">
+			<div>
+				<label for="fullname">Full name</label>
+                <input type="text" id="fullname" name="fullname" required />
+			</div>
+			<div>
+				<label for="phone">Phone number</label>
+                <input type="tel" id="phone" name="phone" required />
+			</div>
+			<div>
+				<label for="message">Comment</label>
+				<input type="text" name="message" id="message">
+			</div>
+			<div class="form-status" id="formStatus"></div>
+			<button type="submit" class="btn-black" id="submitButton">Request a Quote</button>
+		</form>
+	</section>
+
+	<section class="services-page">
+    	<div class="services-section">
+      		<div class="container">
+				<SectionTitle
+				title="Our Services"
+				subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+				/>
+
+				<div class="services-grid" id="servicesGrid">
+					<ServiceCard
+						image={oneBedroomImg.src}
+						title="One Bedroom Apartment"
+						description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros."
+					/>
+					<ServiceCard
+						image={windowCleaningImg.src}
+						title="Window Cleaning"
+						description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros."
+					/>
+					<ServiceCard
+						image={residentialCleaningImg.src}
+						title="Residential Cleaning"
+						description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros."
+					/>
+					<ServiceCard
+						image={constructionCleaningImg.src}
+						title="Construction Cleaning"
+						description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros."
+					/>
+					<ServiceCard
+						image={commercialCleaningImg.src}
+						title="Commercial Cleaning"
+						description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros."
+					/>
+
+					<ServiceCard
+						image={twoBedroomImg.src}
+						title="Two Bedroom Apartment"
+						description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros."
+					/>
+				</div>
+        		<button class="view-all-button" id="viewAllButton">View all</button>
+      		</div>
+    	</div>
+  </section>
+
+	<section class="about-container container">
+		<GroupText 
+			subtitle="About Us"	
+		  	title="Let us takecare of all your cleaning service needs."
+			text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat.Lo"
+			buttons={["Request A Quote"]}
+			noLeftMargin
+		/>
+		<img src="./images/Image.png" alt="" class="about-img">
+	</section>
+
+	<section class="team-container container">
+		<h2>Our Team</h2>
+		<h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
+
+		<div class="team-grid">
+			{[
+			{ name: "Leslie Alexander", img: "/images/person-1.png" ,text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."},
+			{ name: "Ralph Edwards", img: "/images/person-2.png" ,text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."},
+			{ name: "Annette Black", img: "/images/person-3.png" ,text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."},
+			{ name: "Savannah Nguyen", img: "/images/person-4.png" ,text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique."},
+			].map(member => (
+			<TeamCard name={member.name} img={member.img} text={member.text}/>
+			))}
+		</div>
+	</section>
+
+	<ContactCard/>
+
+	<section class="container">
+		<HelpCard/>
+	</section>
+
+	<section class="subscribe-container container">
+		<h2>Subscribe to our newsletter</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+		<form class="form-news">
+			<input type="email" name="email" id="email" placeholder="Enter your email">
+			<button type="submit" class="btn-black" id="btn-news">Sign up</button>
+			<div class="news-status"></div>
+		</form>
+		<span>By clicking Sign Up you're confirming that you agree with our Terms and Conditions.</span>
+	</section>
+
+	<Footer/>
 </Layout>
+
+
+
+<style>
+
+	/* FORM */
+
+	.hero {
+		display: grid; 
+		grid-template-columns: 1fr 80px 1fr; 
+		align-items: center;
+	}
+
+	.hero-img {
+		grid-column: 3;
+		width: 100%;
+		height: auto;
+		display: block;
+	}
+	@media (max-width: 768px) {
+		
+	}
+	/* REQUEST FORM */
+
+	.section-request form{
+		display: flex;
+		flex-wrap: wrap;
+		padding: 2.5rem;
+		align-items: end;
+		justify-content: center;
+		gap: 2rem;
+	}
+	.section-request form div{
+		display: flex;
+		flex-direction: column;
+		gap: .5rem;
+	}
+	.section-request form div input{
+		border-radius: 5px;
+		border: none;
+		outline: .5px black solid;
+		outline-offset: -1px;
+		padding: 12px;
+	}
+
+	/* OUR SERVICES */
+
+	.services-page {
+    background-color: #F7F7F7;
+	}
+
+	.services-section {
+		padding: 80px 0;
+	}
+
+	.services-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 32px;
+	}
+
+	.view-all-button {
+		display: none;
+		margin: 40px auto 0;
+		padding: 14px 32px;
+		background-color: transparent;
+		color: #1a1a1a;
+		border: 1px solid #1a1a1a;
+		border-radius: 4px;
+		font-size: 16px;
+		cursor: pointer;
+		width: 100%;
+		max-width: 400px;
+	}
+
+	/* ABOUT US */
+
+	.about-container{
+		display: grid;
+		grid-template-columns: 1fr 80px 1fr;
+		align-items: center;
+		margin: 120px auto;
+	}
+	.about-container>*{
+		display: grid;
+		grid-template-columns: 1fr 80px 1fr;
+		align-items: center;
+	}
+	
+	.about-img{
+		grid-column: 3;
+		border-radius: 5px;
+		transform: scaleX(-1);
+		width: 100%;
+		height: auto;
+		display: block;
+	}
+
+	/* OUR TEAM */
+	.team-container h2{
+		font-family: Roboto;
+		font-weight: 700;
+		font-style: Bold;
+		font-size: 48px;
+		leading-trim: NONE;
+		line-height: 120%;
+		letter-spacing: 0%;
+		text-align: center;
+		margin-bottom: 16px;
+	}
+	.team-container h3{
+		font-family: Roboto;
+		font-weight: 400;
+		font-style: Regular;
+		font-size: 18px;
+		leading-trim: NONE;
+		line-height: 150%;
+		letter-spacing: 0%;
+		text-align: center;
+	}
+	.team-container h2, .team-container h3{
+		text-align: center;
+	}
+	.team-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 2.5rem;
+		margin-top: 80px;
+	}
+
+	/* SUBSCRIBE */
+
+	.subscribe-container{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 24px;
+		text-align: center;
+		padding: 112px 20px;
+	}
+	.subscribe-container p{
+		max-width: 650px;
+	}
+	.subscribe-container form{
+		display: flex;
+		gap: 16px;
+	}
+	.subscribe-container form input{
+		border: none;
+		outline: .5px black solid;
+		outline-offset: -1px;
+		border-radius: 5px;
+		height: 40px;
+		padding: 5px;
+		width: 250px;
+	}
+
+	/* RESPONSIVE */
+
+	@media (min-width: 1400px) {
+		.contact-content {
+		max-width: 1000px;
+		}
+  	}
+	@media (max-width: 968px) {
+		.services-grid {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 24px;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.hero,.about-container {
+			grid-template-columns: 1fr;
+			grid-template-rows: auto;
+			gap: 2rem;
+			padding: 0 20px;
+		}
+		
+		.hero > * ,.about-container > *{
+			grid-column: auto;
+			crop
+		}
+
+		.section-request form{
+			display: flex;
+			flex-direction: column;
+			flex-wrap: wrap;
+			padding: 2.5rem;
+			align-items: start;
+			justify-content: center;
+		}
+
+		.section-request form div, .section-request form button{
+			width: 100%;
+		}
+
+		.services-section{
+			padding: 60px 20px;
+		}
+
+		.team-grid {
+			display: grid;
+			grid-template-columns: repeat(1, 1fr);
+			gap: 2.5rem;
+			margin-top: 80px;
+		}
+		
+	}
+
+	 @media (max-width: 480px) {
+    .services-section{
+      padding: 40px 20px;
+    }
+
+    .services-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .services-grid.collapsed :global(.service-card:nth-child(n+4)) {
+      display: none;
+    }
+
+    .view-all-button {
+      display: block;
+    }
+
+    .view-all-button.hidden {
+      display: none;
+    }
+	.subscribe-container{
+		display: none;
+	}
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const servicesGrid = document.getElementById('servicesGrid');
+    const viewAllButton = document.getElementById('viewAllButton');
+
+    if (servicesGrid && viewAllButton) {
+      // Initially collapse the grid on mobile
+      if (window.innerWidth <= 480) {
+        servicesGrid.classList.add('collapsed');
+      }
+
+      // Handle button click
+      viewAllButton.addEventListener('click', () => {
+        servicesGrid.classList.remove('collapsed');
+        viewAllButton.classList.add('hidden');
+      });
+
+      // Handle window resize
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 480) {
+          servicesGrid.classList.remove('collapsed');
+          viewAllButton.classList.add('hidden');
+        } else if (!viewAllButton.classList.contains('hidden')) {
+          servicesGrid.classList.add('collapsed');
+        }
+      });
+    }
+  });
+</script>
+
+<script src="../scripts/emailjs-handler.js"></script>
+<script src="../scripts/email-news.js"></script>

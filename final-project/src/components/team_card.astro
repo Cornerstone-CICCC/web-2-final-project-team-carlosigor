@@ -1,0 +1,73 @@
+---
+const { name, img, text } = Astro.props;
+---
+
+<div class="team-card">
+  <img src={img} alt={name} />
+  <div class="team-content">
+    <h3>{name}</h3>
+    <p>{text}</p>
+    <div class="team-socials">
+      <a href=""><img src="./images/linkedin.svg" alt=""></a>
+      <a href=""><img src="./images/twitter.svg" alt=""></a>
+      <a href=""><img src="./images/dribble.svg" alt=""></a>
+    </div>
+  </div>
+</div>
+
+<style>
+.team-card {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.team-content h3{
+  font-family: Roboto;
+  font-weight: 600;
+  font-style: SemiBold;
+  font-size: 1.25rem;
+  leading-trim: NONE;
+  line-height: 150%;
+  letter-spacing: 0%;
+}
+.team-content p{
+  font-family: Roboto;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 1rem;
+  leading-trim: NONE;
+  line-height: 150%;
+  letter-spacing: 0%;
+
+}
+.team-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+img {
+  width: 263px;
+  height: 263px;
+  border-radius: 5px;
+}
+.team-socials{
+  display: flex;
+  gap: 1rem;
+}
+.team-socials a img{
+  width: 18px;
+  height: 18px;
+}
+
+@media (max-width: 768px) {
+  .team-card{
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .team-content{
+    align-items: center;
+  }
+}
+</style>

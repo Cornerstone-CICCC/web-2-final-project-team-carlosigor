@@ -9,6 +9,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.1.2"
+    "@emailjs/browser": "^4.4.1",
+    "@lucide/astro": "^0.562.0",
+    "astro": "^5.16.6"
   }
 }
