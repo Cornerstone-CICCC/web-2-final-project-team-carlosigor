@@ -35,7 +35,7 @@ import Footer from '../components/Footer.astro';
 	</section>
 
 	<section class="section-request container">
-		<form id="contactForm">
+		<form id="commentForm">
 			<div>
 				<label for="fullname">Full name</label>
                 <input type="text" id="fullname" name="fullname" required />
@@ -48,8 +48,8 @@ import Footer from '../components/Footer.astro';
 				<label for="message">Comment</label>
 				<input type="text" name="message" id="message">
 			</div>
-			<div class="form-status" id="formStatus"></div>
-			<button type="submit" class="btn-black" id="submitButton">Request a Quote</button>
+			<div class="form-status" id="commentStatus"></div>
+			<button type="submit" class="btn-black" id="commentButton">Request a Quote</button>
 		</form>
 	</section>
 
@@ -413,4 +413,5 @@ import Footer from '../components/Footer.astro';
 </script>
 
 <script src="../scripts/emailjs-handler.js"></script>
+<script src="../scripts/email-comment.js"></script>
 <script src="../scripts/email-news.js"></script>

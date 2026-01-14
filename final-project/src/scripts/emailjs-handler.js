@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (contactForm && submitButton && formStatus) {
     contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-
       submitButton.disabled = true;
       submitButton.textContent = 'Sending...';
       formStatus.className = 'form-status';
